@@ -1,0 +1,9 @@
+@import "../../../../colors.scss";
+
+.job-card:hover {
+    border-left: 6px solid $desaturated-dark-cyan;
+
+    .position-title {
+        color: $desaturated-dark-cyan;
+    }
+}

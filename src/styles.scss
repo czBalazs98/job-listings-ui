@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "colors.scss";
+
+@font-face {
+  font-family: LeagueSpartan;
+  src: url(./assets/fonts/LeagueSpartan-VariableFont_wght.ttf);
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  font-family: LeagueSpartan;
+}
+
+.text-desaturated-dark-cyan {
+  color: $desaturated-dark-cyan;
+}
+
+.text-dark-grayish-cyan {
+  color: $dark-grayish-cyan;
+}
+
+.text-light-grayish-cyan {
+  color: $light-grayish-cyan;
+}
+
+.bg-desaturated-dark-cyan {
+  background-color: $desaturated-dark-cyan;
+}
+
+.bg-light-grayish-cyan {
+  background-color: $light-grayish-cyan;
+}
+
+.bg-very-dark-grayish-cyan {
+  background-color: $very-dark-grayish-cyan;
+}

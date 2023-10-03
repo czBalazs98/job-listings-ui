@@ -1,0 +1,6 @@
+@import "../../../../colors.scss";
+
+.tag:hover {
+    color: $light-grayish-cyan;
+    background-color: $desaturated-dark-cyan;
+}

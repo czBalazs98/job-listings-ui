@@ -1,0 +1,6 @@
+<div
+  [ngClass]="[isRounded ? 'rounded-2xl' : 'rounded-md', hoverStyleNeeded ? 'tag' : '']"
+  class="{{ bgColorClassName }} {{ textColorClassName }} font-bold px-2 py-1" 
+>
+  <ng-content></ng-content>
+</div>
