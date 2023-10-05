@@ -1,6 +1,18 @@
-<div
-  [ngClass]="[isRounded ? 'rounded-2xl' : 'rounded-md', hoverStyleNeeded ? 'tag' : '']"
-  class="{{ bgColorClassName }} {{ textColorClassName }} font-bold px-2 py-1" 
->
-  <ng-content></ng-content>
+<div class="flex">
+  <div
+    [ngClass]="[
+      isRounded ? 'rounded-2xl' : 'rounded-md',
+      hoverStyleNeeded ? 'tag' : ''
+    ]"
+    class="{{ bgColorClassName }} {{ textColorClassName }} font-bold px-2 py-1"
+  >
+    <ng-content></ng-content>
+  </div>
+  <button
+    *ngIf="removeButtonNeeded"
+    class="remove-button bg-desaturated-dark-cyan text-white px-2 rounded-e-md"
+    (click)="removeButtonClicked()"
+  >
+    <img src="../../../../assets/images/icon-remove.svg" alt="Remove icon">
+  </button>
 </div>

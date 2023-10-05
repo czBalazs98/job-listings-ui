@@ -7,6 +7,7 @@ import { Job, JobType } from '../../model/job';
   styleUrls: ['./job-listing.component.scss'],
 })
 export class JobListingComponent {
+
   jobs: Job[] = [
     {
       logoSrc: '../../../../assets/images/myhome.svg',
@@ -16,7 +17,7 @@ export class JobListingComponent {
       jobType: JobType.Contract,
       location: 'USA only',
       featured: true,
-      tags: ['Frontend', 'Junior', 'CSS', 'JavaScript']
+      tools: ['Frontend', 'Junior', 'CSS', 'JavaScript']
     },
     {
       logoSrc: '../../../../assets/images/photosnap.svg',
@@ -26,7 +27,7 @@ export class JobListingComponent {
       jobType: JobType.FullTime,
       location: 'USA only',
       featured: true,
-      tags: ['Frontend', 'Senior', 'HTML', 'CSS', 'JavaScript']
+      tools: ['Frontend', 'Senior', 'HTML', 'CSS', 'JavaScript']
     },
     {
       logoSrc: '../../../../assets/images/manage.svg',
@@ -36,7 +37,7 @@ export class JobListingComponent {
       jobType: JobType.PartTime,
       location: 'Remote',
       featured: true,
-      tags: ['Fullstack', 'Midweight', 'Python', 'React']
+      tools: ['Fullstack', 'Midweight', 'Python', 'React']
     },
     {
       logoSrc: '../../../../assets/images/loop-studios.svg',
@@ -46,7 +47,7 @@ export class JobListingComponent {
       jobType: JobType.FullTime,
       location: 'Worldwide',
       featured: false,
-      tags: ['Fullstack', 'Midweight', 'JavaScript', 'Sass', 'Ruby']
+      tools: ['Fullstack', 'Midweight', 'JavaScript', 'Sass', 'Ruby']
     },
     {
       logoSrc: '../../../../assets/images/faceit.svg',
@@ -56,7 +57,13 @@ export class JobListingComponent {
       jobType: JobType.FullTime,
       location: 'UK only',
       featured: false,
-      tags: ['Backend', 'Junior', 'Ruby', 'RoR']
+      tools: ['Backend', 'Junior', 'Ruby', 'RoR']
     }
   ];
+
+  isFilterVisible: boolean = false;
+
+  showHideFilterBar() {
+    this.isFilterVisible = !this.isFilterVisible;
+  }
 }

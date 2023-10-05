@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-tag',
@@ -18,4 +18,14 @@ export class TagComponent {
 
   @Input() 
   textColorClassName: string = 'text-desaturated-dark-cyan';
+
+  @Input()
+  removeButtonNeeded: boolean = false;
+
+  @Output() 
+  removeEvent = new EventEmitter<void>();
+
+  removeButtonClicked() {
+    this.removeEvent.emit();
+  }
 }

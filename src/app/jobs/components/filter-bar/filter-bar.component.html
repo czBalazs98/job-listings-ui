@@ -1,0 +1,23 @@
+<div class="flex bg-white rounded-md shadow-xl p-4 mb-12 items-center">
+  <input
+      class="filter-input border-2 border-gray-300 focus:outline-none rounded-md px-2 py-2 mr-6 h-full"
+      type="text"
+      [formControl]="filterControl"
+      (keydown.enter)="addFilter()"
+    />
+  <div class="flex flex-wrap flex-grow space-x-3 gap-1">
+    <app-tag
+      *ngFor="let filter of filters"
+      [hoverStyleNeeded]="false"
+      [removeButtonNeeded]="true"
+      (removeEvent)="removeFilter(filter)"
+      >{{ filter }}</app-tag
+    >
+  </div>
+  <button
+    class="clear-button text-dark-grayish-cyan text-lg font-bold"
+    (click)="clearFilters()"
+  >
+    Clear
+  </button>
+</div>

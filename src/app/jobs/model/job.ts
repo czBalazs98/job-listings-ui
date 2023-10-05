@@ -6,7 +6,7 @@ export interface Job {
     location: string;
     jobType: JobType;
     featured: boolean;
-    tags?: string[];
+    tools?: string[];
 }
 
 export enum JobType {

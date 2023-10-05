@@ -6,21 +6,33 @@
   <div class="flex-grow">
     <div class="flex items-center space-x-2 mb-1">
       <p class="font-bold text-desaturated-dark-cyan mr-3">{{ job.company }}</p>
-      <app-tag *ngIf="getDaysPastCreation() <= 1" [isRounded]="true" bgColorClassName="bg-desaturated-dark-cyan" textColorClassName="text-white">NEW!</app-tag>
-      <app-tag *ngIf="job.featured" [isRounded]="true" bgColorClassName="bg-very-dark-grayish-cyan" textColorClassName="text-white">FEATURED</app-tag>
+      <app-tag
+        *ngIf="getDaysPastCreation() <= 1"
+        [isRounded]="true"
+        bgColorClassName="bg-desaturated-dark-cyan"
+        textColorClassName="text-white"
+        [hoverStyleNeeded]="false"
+        >New!</app-tag
+      >
+      <app-tag
+        *ngIf="job.featured"
+        [isRounded]="true"
+        bgColorClassName="bg-very-dark-grayish-cyan"
+        textColorClassName="text-white"
+        [hoverStyleNeeded]="false"
+        >Featured</app-tag
+      >
     </div>
 
     <p class="position-title font-bold text-xl">{{ job.position }}</p>
 
     <p class="text-dark-grayish-cyan">
-      {{ getDaysPastCreation() + 'd ago' }} &#183; {{ job.jobType }} &#183;
+      {{ getTimePastCreationString() }} &#183; {{ job.jobType }} &#183;
       {{ job.location }}
     </p>
   </div>
 
   <div class="flex space-x-3">
-    <app-tag *ngFor="let tag of job.tags">{{
-      tag
-    }}</app-tag>
+    <app-tag *ngFor="let tool of job.tools">{{ tool }}</app-tag>
   </div>
 </div>

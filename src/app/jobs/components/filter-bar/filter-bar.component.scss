@@ -1,0 +1,10 @@
+@import "../../../../colors.scss";
+
+.clear-button:hover {
+    color: $desaturated-dark-cyan;
+    text-decoration: underline;
+}
+
+.filter-input:focus {
+    border: 2px solid $desaturated-dark-cyan;
+}
