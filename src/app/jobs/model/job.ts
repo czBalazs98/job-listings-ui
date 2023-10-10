@@ -1,4 +1,5 @@
 export interface Job {
+    id: number;
     logoSrc: string;
     company: string;
     position: string;

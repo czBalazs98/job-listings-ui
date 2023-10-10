@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { filter } from 'rxjs';
 
@@ -12,6 +12,9 @@ export class FilterBarComponent {
 
   filters: string[] = [];
 
+  @Output()
+  searchTriggeredEvent = new EventEmitter<string[]>();
+
   addFilter() {
     if (this.filterControl.valid) {
       const filterValue: string = this.filterControl.value!;
@@ -21,6 +24,7 @@ export class FilterBarComponent {
 
       this.filters.push(filterValue);
       this.filterControl.reset();
+      this.searchTriggeredEvent.emit(this.filters);
     }
   }
 
@@ -29,10 +33,12 @@ export class FilterBarComponent {
 
     if (index !== -1) {
       this.filters.splice(index, 1);
+      this.searchTriggeredEvent.emit(this.filters);
     }
   }
 
   clearFilters() {
     this.filters.length = 0;
+    this.searchTriggeredEvent.emit(this.filters);
   }
 }
