@@ -1,17 +1,19 @@
-<div class="flex bg-white rounded-md shadow-xl p-4 mb-12 items-center">
+<div class="flex bg-white rounded-md shadow-xl p-4 mb-16 sm:mb-12 items-center flex-wrap space-x-3 gap-1">
   <input
-      class="filter-input border-2 border-gray-300 focus:outline-none rounded-md px-2 py-2 mr-6 h-full"
+      class="filter-input max-w-full border-2 border-gray-300 focus:outline-none rounded-md px-2 py-2 mr-6 h-full"
       type="text"
       [formControl]="filterControl"
       (keydown.enter)="addFilter()"
     />
-  <div class="flex flex-wrap flex-grow space-x-3 gap-1">
+  <div class="flex flex-grow flex-wrap space-x-3 gap-1 overflow-hidden">
     <app-tag
+      class="overflow-hidden"
       *ngFor="let filter of filters"
       [hoverStyleNeeded]="false"
       [removeButtonNeeded]="true"
       (removeEvent)="removeFilter(filter)"
-      >{{ filter }}</app-tag
+      text="{{ filter }}"
+      ></app-tag
     >
   </div>
   <button

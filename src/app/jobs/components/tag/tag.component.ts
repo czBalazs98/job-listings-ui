@@ -25,6 +25,9 @@ export class TagComponent {
   @Output() 
   removeEvent = new EventEmitter<void>();
 
+  @Input({required: true})
+  text!: string;
+
   removeButtonClicked() {
     this.removeEvent.emit();
   }

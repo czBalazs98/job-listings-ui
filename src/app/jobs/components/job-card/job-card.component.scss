@@ -1,9 +1,21 @@
 @import "../../../../colors.scss";
 
 .job-card:hover {
-    border-left: 6px solid $desaturated-dark-cyan;
+  border-left: 6px solid $desaturated-dark-cyan;
 
-    .position-title {
-        color: $desaturated-dark-cyan;
-    }
+  .position-title {
+    color: $desaturated-dark-cyan;
+  }
+}
+
+@media (min-width: 640px) {
+  .divider {
+    display: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .logo {
+    margin-top: -4rem;
+  }
 }

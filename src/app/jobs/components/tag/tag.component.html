@@ -1,16 +1,16 @@
-<div class="flex">
+<div class="flex text-sm">
   <div
     [ngClass]="[
       isRounded ? 'rounded-2xl' : 'rounded-md',
       hoverStyleNeeded ? 'tag' : ''
     ]"
-    class="{{ bgColorClassName }} {{ textColorClassName }} font-bold px-2 py-1"
+    class="{{ bgColorClassName }} {{ textColorClassName }} font-bold px-2 py-1 overflow-hidden"
   >
-    <ng-content></ng-content>
+    <p class="text-ellipsis overflow-hidden whitespace-nowrap">{{ text }}</p>
   </div>
   <button
     *ngIf="removeButtonNeeded"
-    class="remove-button bg-desaturated-dark-cyan text-white px-2 rounded-e-md"
+    class="remove-button bg-desaturated-dark-cyan text-white px-2 rounded-e-md min-w-fit" 
     (click)="removeButtonClicked()"
   >
     <img src="../../../../assets/images/icon-remove.svg" alt="Remove icon">

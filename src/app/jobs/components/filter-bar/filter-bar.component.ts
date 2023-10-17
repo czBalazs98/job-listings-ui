@@ -38,6 +38,7 @@ export class FilterBarComponent {
   }
 
   clearFilters() {
+    this.filterControl.reset();
     this.filters.length = 0;
     this.searchTriggeredEvent.emit(this.filters);
   }

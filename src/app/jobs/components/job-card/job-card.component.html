@@ -1,10 +1,10 @@
 <div
-  class="job-card flex items-center bg-white p-6 rounded-md shadow-xl mb-6 cursor-pointer"
+  class="job-card flex flex-col sm:flex-row text-left items-start sm:items-center bg-white p-6 rounded-md shadow-xl mb-16 sm:mb-6 cursor-pointer"
 >
-  <img class="mr-3" [src]="getLogo()" alt="{{ job.id }} logo">
+  <img class="logo mb-3 sm:mr-3" [src]="getLogo()" alt="{{ job.id }} logo" />
 
   <div class="flex-grow">
-    <div class="flex items-center space-x-2 mb-1">
+    <div class="flex flex-wrap items-center space-x-2 mb-1">
       <p class="font-bold text-desaturated-dark-cyan mr-3">{{ job.company }}</p>
       <app-tag
         *ngIf="getDaysPastCreation() <= 2"
@@ -12,28 +12,29 @@
         bgColorClassName="bg-desaturated-dark-cyan"
         textColorClassName="text-white"
         [hoverStyleNeeded]="false"
-        >New!</app-tag
-      >
+        text="New!"
+      ></app-tag>
       <app-tag
         *ngIf="job.featured"
         [isRounded]="true"
         bgColorClassName="bg-very-dark-grayish-cyan"
         textColorClassName="text-white"
         [hoverStyleNeeded]="false"
-        >Featured</app-tag
-      >
+        text="Featured"
+      ></app-tag>
     </div>
 
     <p class="position-title font-bold text-xl">{{ job.position }}</p>
 
-    
     <p class="text-dark-grayish-cyan">
-      {{ getTimePastCreationString() }} &#183; {{ job.jobType }} &#183; {{ job.location }} 
+      {{ getTimePastCreationString() }} &#183; {{ job.jobType }} &#183;
+      {{ job.location }}
     </p>
   </div>
 
-  <div class="flex space-x-3">
-    <app-tag *ngFor="let tool of job.tools">{{ tool }}</app-tag>
-  </div>
+  <hr class="divider w-full mt-1 mb-3" />
 
+  <div class="flex flex-wrap gap-1 space-x-3">
+    <app-tag *ngFor="let tool of job.tools" text="{{ tool }}"></app-tag>
+  </div>
 </div>
