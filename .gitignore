@@ -43,3 +43,5 @@ Thumbs.db
 
 # Deployment environment file
 src/assets/environments/environment.prod.ts
+
+.vercel
