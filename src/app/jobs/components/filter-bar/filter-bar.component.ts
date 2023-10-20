@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { filter } from 'rxjs';
+import { Subject, debounceTime, filter } from 'rxjs';
 
 @Component({
   selector: 'app-filter-bar',
@@ -15,6 +15,12 @@ export class FilterBarComponent {
   @Output()
   searchTriggeredEvent = new EventEmitter<string[]>();
 
+  searchTriggeredDebouncer: Subject<string[]> = new Subject<string[]>();
+
+  constructor() {
+    this.searchTriggeredDebouncer.pipe(debounceTime(1000)).subscribe(keywords => this.searchTriggeredEvent.emit(keywords));
+  }
+
   addFilter() {
     if (this.filterControl.valid) {
       const filterValue: string = this.filterControl.value!;
@@ -24,7 +30,7 @@ export class FilterBarComponent {
 
       this.filters.push(filterValue);
       this.filterControl.reset();
-      this.searchTriggeredEvent.emit(this.filters);
+      this.searchTriggeredDebouncer.next(this.filters);
     }
   }
 
@@ -33,13 +39,13 @@ export class FilterBarComponent {
 
     if (index !== -1) {
       this.filters.splice(index, 1);
-      this.searchTriggeredEvent.emit(this.filters);
+      this.searchTriggeredDebouncer.next(this.filters);
     }
   }
 
   clearFilters() {
     this.filterControl.reset();
     this.filters.length = 0;
-    this.searchTriggeredEvent.emit(this.filters);
+    this.searchTriggeredDebouncer.next(this.filters);
   }
 }
